@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "958317487108",
+    "project_id": "accidentally-d3dca",
+    "storage_bucket": "accidentally-d3dca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958317487108:android:036f31aed9eedb02008151",
+        "android_client_info": {
+          "package_name": "com.example.accidenyally"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "958317487108-lutlhe6dnlmqcs4hkuqb2ld8b865tntg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLG9wMw0YMlpWX8dwXSvf0CkVS0KwKba4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "958317487108-lutlhe6dnlmqcs4hkuqb2ld8b865tntg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
