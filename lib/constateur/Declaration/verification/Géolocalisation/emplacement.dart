@@ -275,7 +275,7 @@ class _EmplacementsState extends State<Emplacements> {
                     borderRadius: BorderRadius.circular(25)),
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Heure()));
+                      MaterialPageRoute(builder: (context) => Degats()));
                 },
                 child: Icon(
                   Icons.trending_flat_rounded,

@@ -1,7 +1,9 @@
 import 'package:accidenyally/colors.dart';
+import 'package:accidenyally/constateur/Declaration/T%C3%A9moins/temoin.dart';
+import 'package:accidenyally/constateur/Declaration/conditions/test.dart';
 import 'package:flutter/material.dart';
 
-class Heure extends StatelessWidget {
+class Degats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -139,8 +141,8 @@ class _EmplacementsState extends State<Emplacements> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25)),
                   onPressed: () {
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => null));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Temoins()));
                   },
                   child: Icon(
                     Icons.trending_flat_rounded,
