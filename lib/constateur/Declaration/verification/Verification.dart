@@ -1,5 +1,6 @@
 import 'package:accidenyally/colors.dart';
 import 'package:accidenyally/constateur/Declaration/Information_pr/information_pr.dart';
+import 'package:accidenyally/constateur/Declaration/T%C3%A9moins/ajouter_tmn.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -108,14 +109,14 @@ class _TstState extends State<Tst> {
                                 .limit(1)
                                 .getDocuments();
                             if (result.documents.isNotEmpty) {
+                              String id = result.documents[0].documentID;
                               print("================existant===============");
-                              print(result.documents[0].documentID);
+                              print(id);
                               Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => Infos(
-                                            docid:
-                                                result.documents[0].documentID,
+                                            docid: id,
                                           )));
                             } else {
                               print("-----------inexistant--------");

@@ -1,10 +1,7 @@
 import 'dart:async';
 import 'package:accidenyally/anim.dart';
-import 'package:accidenyally/colors.dart';
 import 'package:accidenyally/login.dart';
-import 'package:accidenyally/services/m_servicess.dart';
 import 'package:accidenyally/services/splash.dart';
-
 import 'package:flutter/material.dart';
 import 'dart:ui';
 

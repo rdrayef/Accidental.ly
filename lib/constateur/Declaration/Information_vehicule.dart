@@ -4,6 +4,8 @@ import 'package:accidenyally/constateur/Declaration/cmb_marque.dart';
 import 'package:flutter/material.dart';
 
 class Infosvehicule extends StatelessWidget {
+  String docid;
+  Infosvehicule({this.docid});
   @override
   Widget build(BuildContext context) {
     double devwidth(BuildContext context) => MediaQuery.of(context).size.width;

@@ -1,8 +1,7 @@
 import 'package:accidenyally/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-
-import 'heure.dart';
+import 'degats.dart';
 
 class Emplacement extends StatelessWidget {
   @override

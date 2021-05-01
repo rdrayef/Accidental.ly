@@ -2,7 +2,6 @@ import 'package:accidenyally/constateur/Declaration/T%C3%A9moins/ajouter_tmn.dar
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-
 import '../../../colors.dart';
 
 class Temoins extends StatefulWidget {
@@ -46,7 +45,7 @@ class _TemoinsState extends State<Temoins> {
           centerTitle: true,
           leading: IconButton(
             icon: Icon(
-              Icons.person,
+              Icons.person_add_alt_1_rounded,
               size: 30,
               color: rougggecolor,
             ),
@@ -64,7 +63,7 @@ class _TemoinsState extends State<Temoins> {
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
                 ),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.25,
+                  width: MediaQuery.of(context).size.width * 0.09,
                 ),
                 Switch(
                   onChanged: toggleSwitch,
@@ -83,10 +82,43 @@ class _TemoinsState extends State<Temoins> {
           Container(
             child: BTN(v1),
           ),
+          Container(child: Tmns()),
         ],
       ), //SizedBox
       //Scaffold
     ));
+  }
+
+  Widget Tmns() {
+    return Container(
+      color: rougecolor,
+      height: MediaQuery.of(context).size.height * 0.065,
+      width: double.maxFinite,
+      child: Row(
+        children: [
+          Container(
+            child: AutoSizeText(
+              "Temoin...",
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white),
+            ),
+          ),
+          Container(
+            margin:
+                EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.33),
+            child: AutoSizeText(
+              "Temoin...",
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   Widget BTN(bool v) {
@@ -114,7 +146,7 @@ class _TemoinsState extends State<Temoins> {
                 ),
                 Container(
                   margin: EdgeInsets.only(
-                      left: MediaQuery.of(context).size.width * 0.46),
+                      left: MediaQuery.of(context).size.width * 0.33),
                   child: Icon(
                     Icons.person_add_alt_1_rounded,
                     color: Colors.white,

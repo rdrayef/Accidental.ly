@@ -1,6 +1,8 @@
 import 'package:accidenyally/colors.dart';
 import 'package:accidenyally/constateur/Declaration/T%C3%A9moins/temoin.dart';
+import 'package:accidenyally/constateur/Declaration/conditions/conditions.dart';
 import 'package:accidenyally/constateur/Declaration/conditions/test.dart';
+import 'package:accidenyally/constateur/Declaration/conditions/tt2.dart';
 import 'package:flutter/material.dart';
 
 class Degats extends StatelessWidget {
@@ -142,7 +144,7 @@ class _EmplacementsState extends State<Emplacements> {
                       borderRadius: BorderRadius.circular(25)),
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Temoins()));
+                        MaterialPageRoute(builder: (context) => Questions()));
                   },
                   child: Icon(
                     Icons.trending_flat_rounded,

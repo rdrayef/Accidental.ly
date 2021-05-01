@@ -1,12 +1,15 @@
 import 'package:accidenyally/colors.dart';
-import 'package:accidenyally/constateur/Declaration/Information_vehicule.dart';
 import 'package:accidenyally/constateur/Declaration/T%C3%A9moins/temoin.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Ajoutemoins extends StatelessWidget {
   TextEditingController _dateexpController = TextEditingController();
 
   TextEditingController _dateatrController = TextEditingController();
+  String docid;
+  Ajoutemoins({this.docid});
   @override
   Widget build(BuildContext context) {
     double devwidth(BuildContext context) => MediaQuery.of(context).size.width;
@@ -313,11 +316,16 @@ class Ajoutemoins extends StatelessWidget {
                           child: FloatingActionButton(
                             backgroundColor: bluecolor,
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Temoins(),
-                                  ));
+                              {
+                                Firestore.instance
+                                    .collection('utilisateurs')
+                                    .document(docid)
+                                    .collection('temoins')
+                                    .document()
+                                    .setData({
+                                  'nom': "Rim",
+                                });
+                              }
                             },
                             child: Icon(
                               Icons.save,

@@ -1,4 +1,5 @@
-import 'package:accidenyally/constateur/Declaration/conditions/conditions.dart';
+import 'package:accidenyally/constateur/Declaration/conditions/tt2.dart';
+import 'package:accidenyally/constateur/Declaration/T%C3%A9moins/temoin.dart';
 import 'package:flutter/material.dart';
 
 import '../../../colors.dart';
@@ -19,7 +20,7 @@ class _HomePageState extends State<Questions> {
       appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          title: Text("Spatio-temporel",
+          title: Text("Circonstances Accident",
               style: TextStyle(
                   color: bluecolor, fontSize: 23, fontWeight: FontWeight.w600)),
           centerTitle: true,
@@ -34,6 +35,26 @@ class _HomePageState extends State<Questions> {
       body: Column(
         children: [
           Container(child: Conditions()),
+          Container(
+            margin: EdgeInsets.only(left: 250),
+            child: SizedBox(
+                height: 50,
+                width: 120,
+                child: RaisedButton(
+                  color: bluecolor,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25)),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Temoins()));
+                  },
+                  child: Icon(
+                    Icons.trending_flat_rounded,
+                    color: Colors.white,
+                    size: 45,
+                  ),
+                )),
+          ),
         ],
       ), //SizedBox
       //Scaffold
