@@ -107,9 +107,6 @@ class _ConditionsState extends State<Conditions> {
   }
 
   Stream<QuerySnapshot> Streamdoc(BuildContext context) async* {
-    yield* Firestore.instance
-        .collection('conditions')
-        .orderBy("", descending: true)
-        .snapshots();
+    yield* Firestore.instance.collection('conditions').snapshots();
   }
 }
