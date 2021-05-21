@@ -1,11 +1,11 @@
 import 'package:accidenyally/constateur/Declaration/conditions/tt2.dart';
 import 'package:accidenyally/constateur/Declaration/T%C3%A9moins/temoin.dart';
+import 'package:accidenyally/constateur/Declaration/point_impact.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-
 import '../../../colors.dart';
 
 // importing material design libraryy
-
 class Questions extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -34,6 +34,18 @@ class _HomePageState extends State<Questions> {
           )),
       body: Column(
         children: [
+          Container(
+            margin: EdgeInsets.only(bottom: 15, top: 5),
+            child: AutoSizeText(
+              'Cocher chacune des cases utilies',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 19.0,
+                fontWeight: FontWeight.w500,
+                color: rougggecolor,
+              ),
+            ),
+          ),
           Container(child: Conditions()),
           Container(
             margin: EdgeInsets.only(left: 250),
@@ -45,8 +57,11 @@ class _HomePageState extends State<Questions> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25)),
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Temoins()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder:
+                                (context) => /*Temoins()*/ Pointdimpacte()));
                   },
                   child: Icon(
                     Icons.trending_flat_rounded,

@@ -40,7 +40,7 @@ class _EmplacementsState extends State<Emplacements> {
   TextEditingController _adr = TextEditingController();
   TextEditingController _heure = TextEditingController();
   TextEditingController _date = TextEditingController();
-
+  bool loading = false;
   @override
   void initState() {
     super.initState();
@@ -52,7 +52,6 @@ class _EmplacementsState extends State<Emplacements> {
         .then((Position position) {
       setState(() {
         _currentPosition = position;
-        _adr.text = _currentAddress;
       });
 
       _getAddressFromLatLng();
@@ -72,6 +71,10 @@ class _EmplacementsState extends State<Emplacements> {
         _currentAddress =
             "${place.subThoroughfare},${place.thoroughfare}, ${place.locality},${place.administrativeArea}, ${place.country}";
         print(_currentAddress);
+        setState(() {
+          _adr.text = _currentAddress;
+          loading = false;
+        });
       });
     } catch (e) {
       print(e);
@@ -124,16 +127,21 @@ class _EmplacementsState extends State<Emplacements> {
                     readOnly: true,
                     autocorrect: true,
                     decoration: InputDecoration(
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          Icons.gps_fixed,
-                          color: bluecolor,
-                          size: 30,
-                        ),
-                        onPressed: () {
-                          _getCurrentLocation();
-                        },
-                      ),
+                      suffixIcon: loading
+                          ? Center(child: CircularProgressIndicator())
+                          : IconButton(
+                              icon: Icon(
+                                Icons.gps_fixed,
+                                color: bluecolor,
+                                size: 30,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  loading = true;
+                                  _getCurrentLocation();
+                                });
+                              },
+                            ),
                       hintText: 'Endroit d\'accident....',
                       hintStyle: TextStyle(color: Colors.grey),
                       filled: true,

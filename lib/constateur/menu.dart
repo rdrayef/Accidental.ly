@@ -2,11 +2,9 @@ import 'package:accidenyally/colors.dart';
 import 'package:accidenyally/constateur/Declaration/verification/Verification.dart';
 import 'package:accidenyally/constateur/costateur_accueil.dart';
 import 'package:accidenyally/constateur/profil/profille.dart';
-import 'package:accidenyally/constateur/setting/setting.dart';
-import 'package:accidenyally/services/services.dart';
+import 'package:accidenyally/parametres.dart';
+import 'package:accidenyally/services/body.dart';
 import 'package:flutter/material.dart';
-
-import 'Declaration/verification/Géolocalisation/emplacement.dart';
 
 class Constateur extends StatefulWidget {
   @override
@@ -15,7 +13,7 @@ class Constateur extends StatefulWidget {
 
 class _ConstateurState extends State<Constateur> {
   int currentTab = 0;
-  final List<Widget> screens = [Princi(), Service(), Setting(), Prfl()];
+  final List<Widget> screens = [Princi(), Content(), Parametres(), Prfl()];
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = Princi();
   @override
@@ -78,7 +76,7 @@ class _ConstateurState extends State<Constateur> {
                     onPressed: () {
                       setState(() {
                         currentScreen =
-                            Service(); // if user taps on this dashboard tab will be active
+                            Content(); // if user taps on this dashboard tab will be active
                         currentTab = 1;
                       });
                     },
@@ -131,7 +129,7 @@ class _ConstateurState extends State<Constateur> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Emplacement();
+                        currentScreen = Parametres();
                         currentTab = 3;
                       });
                     },

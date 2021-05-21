@@ -5,9 +5,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Ajoutemoins extends StatelessWidget {
-  TextEditingController _dateexpController = TextEditingController();
+  TextEditingController _nomcnt = TextEditingController();
+  TextEditingController _prenomcnt = TextEditingController();
+  TextEditingController _cincnt = TextEditingController();
+  TextEditingController _adressecnt = TextEditingController();
+  TextEditingController _gsmcnt = TextEditingController();
+  TextEditingController _emailcnt = TextEditingController();
 
-  TextEditingController _dateatrController = TextEditingController();
   String docid;
   Ajoutemoins({this.docid});
   @override
@@ -31,7 +35,9 @@ class Ajoutemoins extends StatelessWidget {
                 size: 30,
                 color: rougggecolor,
               ),
-              onPressed: () {},
+              onPressed: () {
+                print(docid);
+              },
             )),
         backgroundColor: bluecolors2,
         body: Container(
@@ -57,6 +63,7 @@ class Ajoutemoins extends StatelessWidget {
                         width: devwidth(context) * 0.9,
                         child: TextField(
                           autocorrect: true,
+                          controller: _nomcnt,
                           decoration: InputDecoration(
                             hintText: 'Nom',
                             labelText: 'Nom',
@@ -95,7 +102,7 @@ class Ajoutemoins extends StatelessWidget {
                       ),
                       width: devwidth(context) * 0.9,
                       child: TextField(
-                        controller: _dateatrController,
+                        controller: _prenomcnt,
                         autocorrect: true,
                         decoration: InputDecoration(
                           hintText: 'Prénom',
@@ -139,7 +146,7 @@ class Ajoutemoins extends StatelessWidget {
                       ),
                       width: devwidth(context) * 0.9,
                       child: TextField(
-                        controller: _dateexpController,
+                        controller: _cincnt,
                         autocorrect: true,
                         decoration: InputDecoration(
                           hintText: 'CIN',
@@ -184,6 +191,7 @@ class Ajoutemoins extends StatelessWidget {
                       width: devwidth(context) * 0.9,
                       child: TextField(
                         autocorrect: true,
+                        controller: _adressecnt,
                         decoration: InputDecoration(
                           hintText: 'Adresse',
                           labelText: 'Adresse',
@@ -224,6 +232,7 @@ class Ajoutemoins extends StatelessWidget {
                       width: devwidth(context) * 0.9,
                       child: TextField(
                         autocorrect: true,
+                        controller: _gsmcnt,
                         decoration: InputDecoration(
                           hintText: 'GSM',
                           labelText: 'GSM',
@@ -264,6 +273,7 @@ class Ajoutemoins extends StatelessWidget {
                       width: devwidth(context) * 0.9,
                       child: TextField(
                         autocorrect: true,
+                        controller: _emailcnt,
                         decoration: InputDecoration(
                           hintText: 'Email',
                           labelText: 'Email',
@@ -320,11 +330,24 @@ class Ajoutemoins extends StatelessWidget {
                                 Firestore.instance
                                     .collection('utilisateurs')
                                     .document(docid)
+                                    .collection('constat')
+                                    .document("1H4qvuGXPB1pbooVgBKS")
                                     .collection('temoins')
                                     .document()
                                     .setData({
-                                  'nom': "Rim",
+                                  'nom': _nomcnt.text,
+                                  'prenom': _prenomcnt.text,
+                                  'cin': _cincnt.text,
+                                  'adresse': _adressecnt.text,
+                                  'GSM': _gsmcnt.text,
+                                  'Email': _emailcnt.text,
                                 });
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            // ignore: missing_required_param
+                                            Temoins(docid: docid)));
                               }
                             },
                             child: Icon(

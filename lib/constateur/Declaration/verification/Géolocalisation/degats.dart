@@ -1,8 +1,5 @@
 import 'package:accidenyally/colors.dart';
-import 'package:accidenyally/constateur/Declaration/T%C3%A9moins/temoin.dart';
-import 'package:accidenyally/constateur/Declaration/conditions/conditions.dart';
 import 'package:accidenyally/constateur/Declaration/conditions/test.dart';
-import 'package:accidenyally/constateur/Declaration/conditions/tt2.dart';
 import 'package:flutter/material.dart';
 
 class Degats extends StatelessWidget {

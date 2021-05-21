@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import '../../../colors.dart';
+import 'condition.dart';
 
 class Conditions extends StatefulWidget {
   @override
@@ -11,6 +12,15 @@ class Conditions extends StatefulWidget {
 
 class _ConditionsState extends State<Conditions> {
   List<bool> _itens = List();
+  List<Condition> selecteditems = List();
+  additems(Condition c) {
+    selecteditems.add(c);
+  }
+
+  removeitems(int c) {
+    selecteditems.removeAt(c);
+    print(selecteditems);
+  }
 
   _loadingItens() {
     _itens = [];
@@ -45,12 +55,22 @@ class _ConditionsState extends State<Conditions> {
   }
 
   @override
+  void setState(fn) {
+    // TODO: implement setState
+    removeitems(Condition c) {
+      selecteditems.remove(c);
+    }
+
+    super.setState(fn);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Expanded(
         child: new StreamBuilder(
             stream: Streamdoc(context),
             builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
+              /*   if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(
                   child: Container(
                     width: MediaQuery.of(context).size.width * 0.1,
@@ -60,11 +80,23 @@ class _ConditionsState extends State<Conditions> {
                     ),
                   ),
                 );
+              } */
+              if (!snapshot.hasData) {
+                return Container(
+                  width: MediaQuery.of(context).size.width * 0.1,
+                  child: LoadingIndicator(
+                    indicatorType: Indicator.ballPulse,
+                    color: Colors.orange,
+                  ),
+                );
               }
               return ListView.builder(
+                  key: Key(selecteditems.length.toString()),
                   itemCount: snapshot.data.documents.length,
                   itemBuilder: (_, index) {
-                    print(snapshot.data.documents[index]['Libelle']);
+                    Condition c = new Condition(
+                        snapshot.data.documents[index]['id'].toString(),
+                        snapshot.data.documents[index]['Libelle']);
 
                     return SizedBox(
                       width: double.maxFinite,
@@ -79,10 +111,9 @@ class _ConditionsState extends State<Conditions> {
                             ), //BoxDecoration
 
                             child: CheckboxListTile(
-                              title: AutoSizeText(
-                                  snapshot.data.documents[index]['Libelle']),
+                              title: AutoSizeText(c.libelle),
                               secondary: AutoSizeText(
-                                snapshot.data.documents[index].documentID,
+                                c.id,
                                 style: TextStyle(
                                     color: bluecolor,
                                     fontSize: 25,
@@ -95,7 +126,17 @@ class _ConditionsState extends State<Conditions> {
                               onChanged: (bool value) {
                                 setState(() {
                                   _itens[index] = value;
+                                  print(_itens[index]);
+                                  if (!_itens[index]) {
+                                    removeitems(index);
+                                  }
+                                  if (_itens[index]) {
+                                    additems(c);
+                                  }
                                 });
+                                print(
+                                    "------------>88888888888888888888888888888888888888888888888888888888888888888\n" +
+                                        selecteditems.toString());
                               },
                             ), //CheckboxListTile
                           ), //Container
@@ -107,6 +148,9 @@ class _ConditionsState extends State<Conditions> {
   }
 
   Stream<QuerySnapshot> Streamdoc(BuildContext context) async* {
-    yield* Firestore.instance.collection('conditions').snapshots();
+    yield* Firestore.instance
+        .collection('conditions')
+        .orderBy('id')
+        .snapshots();
   }
 }

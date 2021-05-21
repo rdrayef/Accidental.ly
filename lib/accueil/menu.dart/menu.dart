@@ -1,16 +1,14 @@
 import 'package:accidenyally/colors.dart';
 import 'package:accidenyally/constat/page_constat.dart';
+import 'package:accidenyally/constateur/profil/profille.dart';
 import 'package:accidenyally/documents/documents.dart';
 import 'package:accidenyally/notification/home.dart';
 import 'package:accidenyally/parametres.dart';
-import 'package:accidenyally/profile.dart';
 import 'package:accidenyally/services/m_servicess.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter/material.dart';
 import 'package:loading_indicator/loading_indicator.dart';
-
 import '../../login.dart';
 import '../body.dart';
 
@@ -108,7 +106,7 @@ class _AccueilState extends State<Accueil> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => profilepage(),
+                                  builder: (context) => Prfl(),
                                 ))
                           },
                         ),

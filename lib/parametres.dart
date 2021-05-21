@@ -1,7 +1,7 @@
 import 'package:accidenyally/accueil/menu.dart/menu.dart';
+import 'package:accidenyally/changer-mot-sr-passe.dart';
 import 'package:accidenyally/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_switch/flutter_switch.dart';
 
 class Parametres extends StatelessWidget {
   // This widget is the root of your application.
@@ -246,7 +246,7 @@ class _switchclassState extends State<switchclass> {
             SizedBox(
               height: 15,
             ),
-            _builddivider(),
+            /* _builddivider(),
             SizedBox(
               height: 15,
             ),
@@ -265,7 +265,34 @@ class _switchclassState extends State<switchclass> {
                 size: 29,
                 color: Colors.deepPurple[900],
               ),
+            ),*/
+            _builddivider(),
+            SizedBox(
+              height: 15,
             ),
+            ListTile(
+                leading: Icon(
+                  Icons.lock,
+                  color: Colors.redAccent[700],
+                  size: 30,
+                ),
+                title: Text(
+                  " Mot de Passe",
+                  style: TextStyle(fontSize: 21, fontWeight: FontWeight.w400),
+                ),
+                trailing: IconButton(
+                  icon: Icon(
+                    Icons.keyboard_arrow_right,
+                    size: 29,
+                    color: Colors.deepPurple[900],
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Chpm()),
+                    );
+                  },
+                )),
           ],
         ));
   }

@@ -1,5 +1,6 @@
 import 'package:accidenyally/colors.dart';
 import 'package:accidenyally/constateur/Declaration/Information_vehicule.dart';
+import 'package:accidenyally/constateur/Declaration/conditions/test.dart';
 import 'package:flutter/material.dart';
 
 import 'Géolocalisation/emplacement.dart';
@@ -295,7 +296,8 @@ class InfosPermis extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => Emplacement(),
+                                    builder:
+                                        (context) => /*Emplacement()*/ Questions(),
                                   ));
                             },
                             child: Icon(
